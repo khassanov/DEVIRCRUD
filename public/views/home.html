@@ -1,0 +1,22 @@
+<div class="home-page">
+
+  <h1>Добро пожаловать</h1>
+
+  <div class="grid">
+
+    <div class="grid-item" ng-repeat="product in vm.allProducts" ui-sref="singleproduct({id: product._id})">
+      <span class="grid-item--img">
+        <img ng-src="{{product.img}}" alt="">
+      </span>
+
+      <span class="grid-item--title" ng-bind="product.name">title</span>
+      <span class="grid-item--subtitle" ng-bind="product.description | limitTo:10">discription</span>
+      <span class="grid-item--subtitle" ng-bind="product.price"></span>
+
+
+    </div>
+
+
+  </div>
+
+</div>

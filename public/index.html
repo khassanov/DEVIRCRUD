@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="crud">
+
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="description" content="under 200 symbols">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>crud</title>
+    <link rel="stylesheet" href="style/all.css">
+
+
+</head>
+
+<body>
+    <div ng-controller="AuthCtrl as vm">
+        <header class="header">
+
+
+            <div class="header-tagline">
+                <h1>Shop CRUD</h1>
+                <h2>Тестовое задание для ТОО "DEVIR"</h2>
+
+            </div>
+
+
+            <div class="header-nav" ng-if="vm.user">
+                <ul>
+                    <li ui-sref="home">
+                        Главная страница
+                    </li>
+                    <li ui-sref="adminpanel" ({user_id: vm.user._id })>
+                        Панель управления базой данных
+                    </li>
+
+                    <li ng-click="vm.logout()">Выйти</li>
+                </ul>
+
+
+
+
+            </div>
+
+
+        </header>
+
+        <div class="block" ng-if="!vm.user">
+
+            <div class="login-form">
+                <button class="button" ng-click="vm.showLogin=true">Войти</button>
+                <div class="modal" ng-if="vm.showLogin;">
+
+
+                    <div class="modal-backdrop" ng-click="vm.showLogin = false">
+                    </div>
+                    <div class="modal-inner">
+                        <div class="modal-close" ng-click="vm.showLogin = false">
+                            <img src="images/close.svg" class="modal-close">
+                        </div>
+                        <div class="modal-title">
+                            Авторизация
+                        </div>
+                        <div class="modal-form">
+
+                            <form ng-submit="vm.login();">
+                                <div class="form-field">
+                                    <input type="text" ng-model="vm.emailLogin" ng-class="{' is-error' : vm.errorsLogin.email }" class="input" placeholder="Введите свой e-mail"></input>
+                                    <div ng-if="vm.errorsLogin.email" ng-bind="vm.errorsLogin.email" class="form-field--errorText"></div>
+                                </div>
+
+                                <div class="form-field">
+                                    <input type="password" ng-model="vm.passwordLogin" ng-class="{' is-error' : vm.errorsLogin.password }" class="input" placeholder="Введите свой пароль"></input>
+                                    <div ng-if="vm.errorsLogin.password" ng-bind="vm.errorsLogin.password" class="form-field--errorText"></div>
+                                </div>
+
+                                <div class="form-field">
+                                    <button type="submit"> Войти </button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="signup-form">
+                    <button class="button" ng-click="vm.openSignUp(true)">Зарегистрироваться</button>
+
+                    <div class="modal" ng-if="vm.showSignUp;">
+
+
+                        <div class="modal-backdrop" ng-click="vm.openSignUp(false); vm.errors = false;">
+                        </div>
+                        <div class="modal-inner">
+                            <div class="modal-close" ng-click="vm.openSignUp(false); vm.errors = false;">
+                                <img src="images/close.svg" class="modal-close">
+                            </div>
+                            <div class="modal-title">
+                                Регистрация
+                            </div>
+
+                            <div class="modal-form">
+
+                                <form ng-submit="vm.signup()">
+                                    <div class="form-field">
+                                        <input type="text" placeholder="Введите e-mail" ng-model="vm.email" ng-class="{'is-error' : vm.errors.email}" class="input"></input>
+                                        <div ng-if="vm.errors.email" ng-bind="vm.errors.email" class="form-field--errorText"></div>
+
+                                    </div>
+
+
+                                    <div class="form-field">
+                                        <input type="text" placeholder="Введите имя" ng-model="vm.first_name" ng-class="{'is-error' : vm.errors.firstName}"
+                                            class="input"></input>
+                                        <div ng-if="vm.errors.firstName" ng-bind="vm.errors.firstName" class="form-field--errorText"></div>
+
+                                    </div>
+
+                                    <div class="form-field">
+                                        <input type="text" placeholder="Введите фамилию" ng-model="vm.last_name" ng-class="{'is-error' : vm.errors.lastName}"
+                                            class="input"></input>
+                                        <div ng-if="vm.errors.lastName" ng-bind="vm.errors.lastName" class="form-field--errorText"></div>
+
+                                    </div>
+
+                                    <div class="form-field">
+                                        <input type="password" placeholder="Введите пароль" ng-model="vm.password" ng-class="{'is-error' : vm.errors.password}" class="input"></input>
+                                        <div ng-if="vm.errors.password" ng-bind="vm.errors.password" class="form-field--errorText"></div>
+                                    </div>
+
+                                    <div class="form-field">
+                                        <input type="password" placeholder="Введите пароль еще раз" ng-model="vm.password2" ng-class="{'is-error' : vm.errors.password2}"
+                                            class="input"></input>
+                                        <div ng-if="vm.errors.password2" ng-bind="vm.errors.password2" class="form-field--errorText"></div>
+                                    </div>
+                                    <div class="form-field">
+                                        <button type="submit"> Зарегистрироваться </button>
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <main class="main" ui-view>
+
+    </main>
+
+    <script src="js/vendor/ng.min.js"></script>
+    <script src="js/vendor/ng-route.min.js"></script>
+    <script src="router.js"></script>
+    <script src="js/controllers/controller.adminpanel.js"></script>
+    <script src="js/controllers/controller.singleproduct.js"></script>
+    <script src="js/controllers/controller.authentification.js"></script>
+    <script src="js/controllers/controller.home.js"></script>
+    <script src="js/directives/directive.customonchange.js"></script>
+    <footer></footer>
+</body>
+
+</html>

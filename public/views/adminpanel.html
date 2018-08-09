@@ -1,0 +1,156 @@
+<div class="block-admin">
+    <div class=" block-admin--button ">
+        <button class="button " ng-click="vm.openAddModule(true) "> Добавить товар в базу</button>
+
+    </div>
+
+    <div class="modal " ng-if="vm.addModule ">
+
+        <div class="modal-backdrop " ng-click="vm.openAddModule(false) ">
+        </div>
+        <div class="modal-inner ">
+            <div class="modal-close " ng-click="vm.openAddModule(false) ">
+                <img src="images/close.svg " class="modal-close ">
+            </div>
+            <div class="modal-title ">
+                Добавление записи в базу данных
+            </div>
+            <div class="modal-form ">
+                <form ng-submit="vm.save(); ">
+                    <div class="form-field ">
+                        <input type="text" ng-model="vm.name " placeholder="Наименование продукта "></input>
+
+                    </div>
+
+                    <div class="form-field ">
+                        <input type="text" class="textarea " ng-model="vm.description " placeholder="Описание продукта "></input>
+
+                    </div>
+
+                    <div class="form-field">
+                        <input type="text" ng-model="vm.category " placeholder="Категория продукта "></input>
+
+                    </div>
+
+                    <div class="form-field ">
+                        <input type="text" ng-model="vm.price " placeholder="Цена продукта "></input>
+
+                    </div>
+
+                    <div class="form-field form-field--file">
+                        <input type="file" class="input-file" custom-on-change="vm.readURL">
+                        <span>Выберите файл</span>
+                        <img src="images/file.svg ">
+
+                        </input>
+                    </div>
+
+                    <div class="form-field">
+                        <button type="submit"> Сохранить</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="modal " ng-if="vm.editModule ">
+        <div class="modal-backdrop " ng-click="vm.openEditModule() ">
+        </div>
+        <div class="modal-inner ">
+            <div class="modal-close " ng-click="vm.openEditModule() ">
+                <img src="images/close.svg " class="module-close ">
+            </div>
+            <div class="modal-title ">
+                Редактирование товара
+            </div>
+            <div class="modal-form ">
+                <form ng-submit="vm.updateShop() ">
+                    <div class="form-field ">
+                        <input ng-model="vm.editShop.name" type="text" class="input" name=" "></input>
+                    </div>
+
+                    <div class="form-field ">
+                        <input ng-model="vm.editShop.description" type="text" class="input"></input>
+                    </div>
+
+                    <div class="form-field ">
+                        <input input ng-model="vm.editShop.category" type="text" class="input"></input>
+                    </div>
+
+                    <div class="form-field ">
+                        <input ng-model="vm.editShop.price" type="text" class="input"></input>
+                    </div>
+
+                    <div class="form-field form-field--file">
+                        <input type="file" ng-model="vm.editShop.img" class="input-file" custom-on-change="vm.readURLEdit">
+                        <span>Выберите файл</span>
+                        <img src="images/file.svg" alt=" ">
+
+                        </input>
+                    </div>
+                    <div class="form-field form-field--file ">
+                        <img ng-src="{{vm.imgPreload}} " style="width: 100px; ">
+                    </div>
+
+                    <div class="form-field">
+                        <button type="submit"> Сохранить</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="block-admin--table">
+        <div class="table ">
+            <div class="row">
+                <div class="cell" id="cell-head">Изображение товара</div>
+                <div class="cell" id="cell-head">Наименование товара</div>
+                <div class="cell" id="cell-head">Описание товара</div>
+                <div class="cell" id="cell-head">Категория товара</div>
+                <div class="cell" id="cell-head">Цена товара</div>
+                <div class="cell" id="cell-head">Редактировать</div>
+                <div class="cell" id="cell-head">Удалить</div>
+            </div>
+
+            <div class="row" ng-repeat="product in vm.products">
+                <div class="cell">
+                    <div class="tb-item--img">
+                        <img ng-src="{{product.img}}" ui-sref="singleproduct({id: product._id})">
+                    </div>
+                </div>
+                <div class="cell">
+                    <div class="tb-item--name" ng-bind="product.name" ui-sref="singleproduct({id: product._id})"></div>
+                </div>
+                <div class="cell">
+                    <div class="tb-item--description" ng-bind="product.description | limitTo:50" ui-sref="singleproduct({id:
+    product._id})"></div>
+                </div>
+                <div class="cell">
+                    <div class="tb-item--category" ng-bind="product.category"></div>
+                </div>
+                <div class="cell">
+                    <div class="tb-item--price" ng-bind="product.price"></div>
+                </div>
+                <div class="cell">
+                    <div class="tb-editor">
+                        <span ng-click="vm.openEditModule(product)">
+                            <img src="images/edit.svg" alt=" ">
+                    </div>
+                </div>
+                <div class="cell">
+                    <div class="tb-editor">
+                        <span ng-click="vm.deleteGoods(product)">
+                            <img src="images/trash.svg ">
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

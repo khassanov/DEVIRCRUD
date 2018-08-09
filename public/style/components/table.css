@@ -1,0 +1,82 @@
+.tb-item {
+    width: 100%;
+    padding: 10px;
+    min-width: 100px;
+    margin: auto;
+    cursor: pointer;
+}
+
+.tb-item:hover {
+    background: #1ba3d6;
+}
+
+.tb-item--img {}
+
+.tb-item--img img {
+    width: 70%;
+}
+
+.tb-item--name {
+    font-size: 14px;
+}
+
+.tb-item--description {
+    font-size: 14px;
+    width: 100%;
+}
+
+.tb-item--category {
+    font-size: 14px;
+}
+
+.tb-item--price {
+    font-size: 14px;
+}
+
+/*Ссылка  */
+
+.tb-item:hover>.tb-editor {}
+
+.tb-editor {
+    height: 50%;
+    width: 50%;
+}
+
+.tb-editor span img {
+    width: 30px;
+    height: 30px;
+}
+
+.table {
+    display: table;
+    width: 100%;
+    padding: 10px;
+    min-width: 100px;
+    margin: auto;
+    cursor: pointer;
+    border-collapse: collapse;
+    overflow-y: hidden;
+}
+
+.row {
+    display: table-row;
+    justify-content: center;
+    align-items: center;
+    border: 10px #1ba3d6 solid;
+    border-radius: 10px;
+}
+
+.cell {
+    display: table-cell;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+    line-height: 20px;
+}
+
+#cell-head {
+    background-color: #1ba3d6;
+    color: aliceblue;
+    padding: 20px;
+    width: 15%;
+}

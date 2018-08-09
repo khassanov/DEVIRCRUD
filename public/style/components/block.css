@@ -1,0 +1,63 @@
+.main {
+    
+    min-height: calc(100vh - 100px);
+   
+}
+
+.block {
+    width: 80%;
+    margin: auto;
+    border:1px #1ba3d6 solid;
+}
+
+.block-admin {
+    width: 100%;
+    margin: auto;
+}
+
+.block-admin--button {
+    width: 200px;
+    padding: 10px;
+    margin: auto;
+}
+
+.block-admin--table {
+    width: 80%;
+    margin: auto;
+    border-radius: 10px;
+    
+}
+
+.login-form {
+    padding-top: 20px;
+    width: 220px;
+    height: 200px;
+    
+    margin: auto;
+}
+
+.login-form button {
+    
+    line-height: 50px;
+    margin: 10px;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    background-color: #1ba3d6;
+    color: #fff;
+    font-size: 18px;
+    
+}
+
+.block-admin--button button {
+    
+    line-height: 50px;
+    margin: 10px;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    background-color: #1ba3d6;
+    color: #fff;
+    font-size: 18px;
+    
+}

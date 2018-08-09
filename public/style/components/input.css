@@ -1,0 +1,77 @@
+.form-field {
+    width: 100%;
+    padding: 10px 0px;
+}
+
+.input {
+    width: 100%;
+    height: 40px;
+    padding: 0px 10px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #ddd;
+}
+
+.textarea {
+    width: 100%;
+    min-height: 200px;
+    resize: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.form-field--file {
+    border: 2px dashed #ddd;
+    height: 60px;
+    position: relative;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-field--file input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.form-field--file img {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.input.is-error {
+    border-color: crimson;
+}
+
+.form-field--errorText {
+    color: crimson;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.textarea {
+    width: 90%;
+    min-height: 80px;
+    resize: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.form-field button {
+    position: relative;
+    margin: auto;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    background-color: #1ba3d6;
+    color: #fff;
+    font-size: 18px;
+}

@@ -1,0 +1,54 @@
+.header {
+    width: 80%;
+    height: 20%;
+    margin: 0 auto;
+    background-color: #1ba3d6;
+    color: #fff;
+}
+
+.header-tagline {}
+
+.header-tagline h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 30px;
+    text-align: center;
+    padding: 10px;
+}
+
+.header-tagline h2 {
+    font-size: 30px;
+    text-align: center;
+    padding: 10px;
+}
+
+.header-text {
+    width: 100%;
+    height: 200px;
+    text-align: center;
+}
+
+.header-nav {
+    height: 100%;
+    margin: auto;
+}
+
+.header-nav ul {
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.header-nav ul li {
+    height: 100%;
+    padding: 0 10px;
+    font-size: 24px;
+    line-height: 60px;
+    cursor: pointer;
+}
+
+.header-nav ul li:hover {
+    background: #1ba3d6;
+    color: #fff;
+}
