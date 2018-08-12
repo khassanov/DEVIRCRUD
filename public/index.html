@@ -29,7 +29,7 @@
                     <li ui-sref="home">
                         Главная страница
                     </li>
-                    <li ui-sref="adminpanel" ({user_id: vm.user._id })>
+                    <li ui-sref="adminpanel({user_id: vm.user._id })">
                         Панель управления базой данных
                     </li>
 
@@ -110,15 +110,13 @@
 
 
                                     <div class="form-field">
-                                        <input type="text" placeholder="Введите имя" ng-model="vm.first_name" ng-class="{'is-error' : vm.errors.firstName}"
-                                            class="input"></input>
+                                        <input type="text" placeholder="Введите имя" ng-model="vm.first_name" ng-class="{'is-error' : vm.errors.firstName}" class="input"></input>
                                         <div ng-if="vm.errors.firstName" ng-bind="vm.errors.firstName" class="form-field--errorText"></div>
 
                                     </div>
 
                                     <div class="form-field">
-                                        <input type="text" placeholder="Введите фамилию" ng-model="vm.last_name" ng-class="{'is-error' : vm.errors.lastName}"
-                                            class="input"></input>
+                                        <input type="text" placeholder="Введите фамилию" ng-model="vm.last_name" ng-class="{'is-error' : vm.errors.lastName}" class="input"></input>
                                         <div ng-if="vm.errors.lastName" ng-bind="vm.errors.lastName" class="form-field--errorText"></div>
 
                                     </div>
